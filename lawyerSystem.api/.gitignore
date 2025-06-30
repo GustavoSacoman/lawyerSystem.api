@@ -61,7 +61,7 @@ nunit-*.xml
 *.vs/
 *.suo
 *.user
-
+*.vs
 
 # Test results
 TestResults/
