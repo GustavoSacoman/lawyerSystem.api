@@ -2,6 +2,7 @@
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace lawyerSystem.api.Api.Extensions;
 
@@ -12,7 +13,14 @@ public static class DependencyInjection
         IConfiguration configuration)
     {
 
-        services.AddControllers();
+        services.AddControllers()
+        .AddJsonOptions(options =>
+        {
+            options
+            .JsonSerializerOptions
+            .Converters
+            .Add(new JsonStringEnumConverter());
+        });
 
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen(options =>
@@ -31,7 +39,10 @@ public static class DependencyInjection
                 {
                     new OpenApiSecurityScheme
                     {
-                        Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" },
+                        Reference = new OpenApiReference { 
+                            Type = ReferenceType.SecurityScheme,
+                            Id = "Bearer",
+                        },
                     },
                     new string[] { }
 
