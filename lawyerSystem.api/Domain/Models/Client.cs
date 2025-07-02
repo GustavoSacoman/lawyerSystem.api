@@ -1,14 +1,16 @@
-﻿namespace lawyerSystem.api.Domain.Models;
+﻿using lawyerSystem.api.Domain.Enums.Client;
+
+namespace lawyerSystem.api.Domain.Models;
 
 public class Client
 {
-    public Guid Id { get; set; }
+    required public Guid Id { get; set; }
 
-  //  public ClientType ClientType { get; set; } 
+    required public ClientType ClientType { get; set; }
 
-    public required bool isActive { get; set; } = true;
+    required public bool isActive { get; set; } = true;
 
-    public required string CPF { get; set; } = string.Empty;
+    required public string CPF { get; set; } = string.Empty;
 
     public DateTime? DateOfBirth { get; set; }
 
@@ -18,6 +20,11 @@ public class Client
 
     public string? TradingName { get; set; }
 
-    public Guid UserId { get; set; }
-    public virtual User User { get; set; }
+    required public Guid UserId { get; set; }
+
+    required public virtual User User { get; set; }
+
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+    public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 }

@@ -31,6 +31,12 @@ public class LawyerProfileRepository : ILawyerProfileRepositoyry
         return await _database.Lawyers.FindAsync(Id) ?? throw new KeyNotFoundException("Lawyer not found");
     }
 
+    public async Task<Lawyer> GetLawyerByOab(string OAB)
+    {
+        return await _database.Lawyers.FirstOrDefaultAsync(Lawyer => Lawyer.OABNumber == OAB)
+            ?? throw new KeyNotFoundException("Lawyer not found");
+    }
+
     public async Task UpdateLawyerAsync(Lawyer Lawyer)
     {
         _database.Update(Lawyer);

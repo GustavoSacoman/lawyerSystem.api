@@ -31,6 +31,12 @@ public class RoleRepository : IRoleRepository
         return await _database.Roles.FindAsync(Id) ?? throw new KeyNotFoundException("Role not found");
     }
 
+    public async Task<Role> GetRoleByName(string name)
+    {
+        return await _database.Roles.FirstOrDefaultAsync(_database => _database.Name == name)
+               ?? throw new KeyNotFoundException("Role not found");
+    }
+
     public async Task UpdateRoleAsync(Role role)
     {
         _database.Update(role);

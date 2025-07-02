@@ -4,18 +4,23 @@ namespace lawyerSystem.api.Domain.Models;
 
 public class Lawyer
 {
-    public required Guid Id { get; set; } 
+    required public Guid Id { get; set; }
 
-    public required string OABNumber { get; set; } = string.Empty;
+    required public string OABNumber { get; set; } = string.Empty;
 
-    public required string OABState { get; set; } = string.Empty; 
+    required public string OABState { get; set; } = string.Empty;
 
-    public required Position Position { get; set; }
+    required public Position Position { get; set; }
 
-    public required bool IsActive { get; set; } = true;
+    required public bool IsActive { get; set; } = true;
 
-    public string? Biography { get; set; } 
+    public string? Biography { get; set; }
 
-    public Guid UserId { get; set; }
-    public virtual required User User { get; set; }
+    required public Guid UserId { get; set; }
+
+    required public virtual User User { get; set; }
+
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+    public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 }

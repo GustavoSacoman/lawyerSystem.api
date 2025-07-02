@@ -4,9 +4,11 @@ namespace lawyerSystem.api.Core.Interfaces;
 
 public interface ILawyerProfileRepositoyry
 {
-    public Task AddAsync(Lawyer lawyer);
+    public Task AddAsync(Lawyer Lawyer);
 
     public Task<Lawyer> GetLawyerAsync(Guid Id);
+
+    public Task<Lawyer> GetLawyerByOab(string OAB);
 
     public Task UpdateLawyerAsync(Lawyer Lawyer);
 

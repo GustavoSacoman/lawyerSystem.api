@@ -13,6 +13,7 @@ public interface IRoleRepository
 
     public Task<Role> GetRoleAsync(Guid Id);
 
+    public Task<Role> GetRoleByName(string name);
     public Task UpdateRoleAsync(Role role);
 
     public Task DeleteRoleAsync(Guid Id);
