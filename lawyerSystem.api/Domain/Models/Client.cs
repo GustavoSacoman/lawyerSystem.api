@@ -1,8 +1,9 @@
-﻿using lawyerSystem.api.Domain.Enums.Client;
+﻿using lawyerSystem.api.Core.Interfaces;
+using lawyerSystem.api.Domain.Enums.Client;
 
 namespace lawyerSystem.api.Domain.Models;
 
-public class Client
+public class Client : IAuditableEntity
 {
     required public Guid Id { get; set; }
 
@@ -27,4 +28,5 @@ public class Client
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+
 }

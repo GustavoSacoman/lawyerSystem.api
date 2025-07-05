@@ -1,10 +1,12 @@
-﻿namespace lawyerSystem.api.Domain.Models;
+﻿using lawyerSystem.api.Core.Interfaces;
 
-public class UserRole
+namespace lawyerSystem.api.Domain.Models;
+
+public class UserRole : IAuditableEntity
 {
     public Guid UserId { get; set; }
 
-    required public virtual User User { get; set; }
+    public virtual User User { get; set; }
 
     public Guid RoleId { get; set; }
 

@@ -1,8 +1,9 @@
-﻿using lawyerSystem.api.Domain.Enums.Lawyer;
+﻿using lawyerSystem.api.Core.Interfaces;
+using lawyerSystem.api.Domain.Enums.Lawyer;
 
 namespace lawyerSystem.api.Domain.Models;
 
-public class Lawyer
+public class Lawyer : IAuditableEntity
 {
     required public Guid Id { get; set; }
 

@@ -1,8 +1,9 @@
-﻿using lawyerSystem.api.Domain.Enums;
+﻿using lawyerSystem.api.Core.Interfaces;
+using lawyerSystem.api.Domain.Enums;
 
 namespace lawyerSystem.api.Domain.Models;
 
-public class User
+public class User : IAuditableEntity
 {
     required public Guid Id { get; set; }
 
@@ -12,7 +13,7 @@ public class User
 
     required public string Phone { get; set; } = string.Empty;
 
-    required public string Password { get; set; } = string.Empty;
+    required public string PasswordHash { get; set; } = string.Empty;
 
     required public string Salt { get; set; } = string.Empty;
 

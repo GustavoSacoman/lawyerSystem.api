@@ -1,12 +1,14 @@
-﻿namespace lawyerSystem.api.Domain.Models;
+﻿using lawyerSystem.api.Core.Interfaces;
 
-public class Role
+namespace lawyerSystem.api.Domain.Models;
+
+public class Role : IAuditableEntity
 {
     public Guid Id { get; set; } = Guid.NewGuid();
 
     required public string Name { get; set; } = string.Empty;
 
-    required public virtual ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
+    public virtual ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
