@@ -50,7 +50,7 @@ public static class DependencyInjection
             });
         });
 
-        var key = Encoding.ASCII.GetBytes(configuration["JwtSettings:SecretKey"]); // Pega a chave do appsettings
+        var key = Encoding.ASCII.GetBytes(configuration["JwtSettings:SecretKey"]);
         services.AddAuthentication(x =>
         {
             x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -58,14 +58,14 @@ public static class DependencyInjection
         })
         .AddJwtBearer(x =>
         {
-            x.RequireHttpsMetadata = false; // Em produção, deve ser true
+            x.RequireHttpsMetadata = false; 
             x.SaveToken = true;
             x.TokenValidationParameters = new TokenValidationParameters
             {
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = new SymmetricSecurityKey(key),
-                ValidateIssuer = false, // Em produção, pode validar o emissor
-                ValidateAudience = false // Em produção, pode validar a audiência
+                ValidateIssuer = false,
+                ValidateAudience = false
             };
         });
 

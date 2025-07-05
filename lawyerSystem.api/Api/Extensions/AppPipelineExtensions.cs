@@ -6,7 +6,7 @@ public static class AppPipelineExtensions
         this WebApplication app,
         IWebHostEnvironment env)
     {
-        if (env.IsDevelopment())
+        if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();
             app.UseSwaggerUI();
