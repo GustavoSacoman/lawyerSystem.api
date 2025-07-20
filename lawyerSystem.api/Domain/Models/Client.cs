@@ -4,7 +4,7 @@ public class Client
 {
     public Guid Id { get; set; }
 
-    public ClientType ClientType { get; set; } 
+  //  public ClientType ClientType { get; set; } 
 
     public required bool isActive { get; set; } = true;
 

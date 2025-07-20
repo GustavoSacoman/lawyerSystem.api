@@ -52,6 +52,7 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
 # Visual Studio Code
 .vscode/
 *.env
@@ -71,5 +72,3 @@ TestResults/
 TestResults/
 coverage/
 coverage-report/
-=======
-/.vs
