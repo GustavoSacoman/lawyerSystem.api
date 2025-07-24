@@ -16,7 +16,6 @@
     <Folder Include="Core\Dtos\" />
     <Folder Include="Core\Mappers\" />
     <Folder Include="Core\Services\" />
-    <Folder Include="Core\Interfaces\" />
     <Folder Include="Infrastructure\Configurations\" />
   </ItemGroup>
 
