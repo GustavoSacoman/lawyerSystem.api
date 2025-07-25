@@ -1,4 +1,5 @@
-﻿using lawyerSystem.api.Domain.Models;
+﻿using lawyerSystem.api.Domain.Interfaces;
+using lawyerSystem.api.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
