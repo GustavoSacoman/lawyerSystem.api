@@ -21,4 +21,27 @@ public class AppDbContext : DbContext
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
 
+    public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+    {
+        UpdateAuditFields();
+        return base.SaveChangesAsync(cancellationToken);
+    }
+
+    public void UpdateAuditFields()
+    {
+        var entries = ChangeTracker.Entries<IAuditableEntity>();
+
+        foreach (var entry in entries)
+        {
+            if (entry.State == EntityState.Added)
+            {
+                entry.Property(p => p.CreatedAt).CurrentValue = DateTime.UtcNow;
+                entry.Property(p => p.UpdatedAt).CurrentValue = DateTime.UtcNow;
+            }
+            else if (entry.State == EntityState.Modified)
+            {
+                entry.Property(p => p.UpdatedAt).CurrentValue = DateTime.UtcNow;
+            }
+        }
+    }
 }
