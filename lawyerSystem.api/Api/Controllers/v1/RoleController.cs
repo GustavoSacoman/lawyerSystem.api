@@ -38,12 +38,8 @@ public class RolesController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> PostRole([FromBody] CreateRoleCommand roleCommand)
+    public async Task<IActionResult> CreateRole([FromBody] CreateRoleCommand roleCommand)
     {
-        if (roleCommand == null)
-        {
-            BadRequest("Role command cannot be null");
-        }
 
         var newRole = await _roleService.CreateRoleAsync(roleCommand);
 
@@ -54,10 +50,6 @@ public class RolesController : Controller
     [HttpPatch("{Id:guid}")]
     public async Task<IActionResult> UpdateRole(Guid Id, [FromBody] UpdateRoleCommand roleCommand)
     {
-        if (roleCommand == null)
-        {
-            BadRequest("Role command cannot be null");
-        }
 
         await _roleService.UpdateRole(Id ,roleCommand);
 
