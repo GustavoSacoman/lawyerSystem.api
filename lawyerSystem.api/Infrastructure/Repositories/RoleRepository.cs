@@ -26,9 +26,14 @@ public class RoleRepository : IRoleRepository
             .ExecuteDeleteAsync();
     }
 
-    public async Task<Role> GetRoleAsync(Guid Id)
+    public async Task<Role> GetRoleByIdAsync(Guid Id)
     {
         return await _database.Roles.FindAsync(Id) ?? throw new KeyNotFoundException("Role not found");
+    }
+
+    public async Task<IEnumerable<Role>> GetAllRolesAsync()
+    {
+        return await _database.Roles.ToListAsync();
     }
 
     public async Task<Role> GetRoleByName(string name)

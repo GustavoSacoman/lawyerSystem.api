@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace lawyerSystem.api.Infrastructure.Repositories;
 
-public class UnitOfWork
+public class UnitOfWork : IUnitOfWork
 {
     public readonly AppDbContext _database;
 
