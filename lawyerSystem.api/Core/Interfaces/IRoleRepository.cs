@@ -11,8 +11,9 @@ public interface IRoleRepository
     /// <returns>A task representing the asynchronous operation.</returns>
     Task AddAsync(Role role);
 
-    public Task<Role> GetRoleAsync(Guid Id);
+    public Task<Role> GetRoleByIdAsync(Guid Id);
 
+    public Task<IEnumerable<Role>> GetAllRolesAsync();
     public Task<Role> GetRoleByName(string name);
     public Task UpdateRoleAsync(Role role);
 
