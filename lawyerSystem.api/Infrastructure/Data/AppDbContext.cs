@@ -1,5 +1,6 @@
 ﻿using lawyerSystem.api.Domain.Interfaces;
 using lawyerSystem.api.Domain.Models;
+using lawyerSystem.api.Infrastructure.Data.Configurations;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -11,6 +12,8 @@ public class AppDbContext : DbContext
     {
     }
 
+    public DbSet<User> Users { get; set; }
+
     public DbSet<Role> Roles { get; set; }
 
     public DbSet<UserRole> UserRoles { get; set; }
@@ -18,11 +21,6 @@ public class AppDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-
-        modelBuilder.Ignore<User>();
-        modelBuilder.Ignore<Lawyer>();
-        modelBuilder.Ignore<Client>();
-
 
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
