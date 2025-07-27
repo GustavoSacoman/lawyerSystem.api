@@ -1,4 +1,7 @@
-﻿using lawyerSystem.api.Infrastructure.Data;
+﻿using lawyerSystem.api.Core.Interfaces;
+using lawyerSystem.api.Core.Services;
+using lawyerSystem.api.Infrastructure.Data;
+using lawyerSystem.api.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace lawyerSystem.api.Infrastructure;
@@ -19,9 +22,12 @@ public static class DependencyInjection
         services.AddDbContext<AppDbContext>(options =>
         options.UseNpgsql(connectionString));
 
+        services.AddScoped<IRoleRepository, RoleRepository>();
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
+
         return services;
         //services.AddScoped<IUserRepository, UserRepository>();
-        //services.AddScoped<IRoleRepository, RoleRepository>();
+
         //services.AddScoped<IUserRoleRepository, UserRoleRepository>();
     }
 }
