@@ -13,7 +13,6 @@ public static class DependencyInjection
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
         services.AddScoped<IRoleService, RoleService>();
-        services.AddScoped<IUnitOfWork, UnitOfWork>();
         //services.AddScoped(IUserService, UserService);
 
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
