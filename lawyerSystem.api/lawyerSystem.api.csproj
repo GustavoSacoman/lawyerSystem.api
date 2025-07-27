@@ -13,7 +13,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructure\Configurations\" />
+    <Compile Remove="Infrastructure\Configurations\**" />
+    <Content Remove="Infrastructure\Configurations\**" />
+    <EmbeddedResource Remove="Infrastructure\Configurations\**" />
+    <None Remove="Infrastructure\Configurations\**" />
   </ItemGroup>
 
   <ItemGroup>
