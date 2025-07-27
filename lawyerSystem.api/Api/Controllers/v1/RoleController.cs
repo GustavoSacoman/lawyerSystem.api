@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace lawyerSystem.api.Api.Controllers.v1;
 
 [ApiController]
-[Route("api/v1/[roles]")]
+[Route("api/v1/[controller]")]
 [Authorize(Roles = "Admin")]
-public class RolesController : Controller
+public class RolesController : ControllerBase
 {
     public readonly IRoleService _roleService;
 
@@ -31,7 +31,7 @@ public class RolesController : Controller
 
         if (role == null)
         {
-            NotFound("Role command cannot be null");
+            return NotFound("Role command cannot be null");
         }
 
         return Ok(role);
