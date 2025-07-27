@@ -19,6 +19,11 @@ public class AppDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
+        modelBuilder.Ignore<User>();
+        modelBuilder.Ignore<Lawyer>();
+        modelBuilder.Ignore<Client>();
+
+
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
 
